@@ -249,7 +249,7 @@ footer strong{color:var(--gold-light);}
         <div class="sync-badges">
           <span class="sync-badge">📅 Booking.com · iCal</span>
           <span class="sync-badge">🏡 Airbnb · iCal</span>
-          <span class="sync-badge" id="sync-live"></span>
+          <span class="sync-badge"><span id="sync-status">✅</span> <span id="sync-live"></span></span>
         </div>
       </div>
     </div>
@@ -340,6 +340,7 @@ fetch('config.json?v=' + Date.now())
       emailjs.init(cfg.booking.emailjs_public_key);
     }
     renderAll();
+    loadIcalAvailability();
   })
   .catch(function(e){ console.error('config.json failed to load', e); });
 
@@ -454,9 +455,36 @@ function renderFooter(){
 // ══════════════════════════════════════════
 //  CALENDAR
 // ══════════════════════════════════════════
+var icalBookedDays = []; // populated by loadIcalAvailability()
+
+function loadIcalAvailability(){
+  var statusEl = el('sync-status');
+  if(statusEl) statusEl.textContent = '🔄';
+  fetch('/.netlify/functions/get-availability')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if(data.bookedDays && data.bookedDays.length > 0){
+        icalBookedDays = data.bookedDays;
+        renderCal();
+        if(statusEl) statusEl.textContent = '✅';
+      } else {
+        if(statusEl) statusEl.textContent = '✅';
+      }
+    })
+    .catch(function(e){
+      console.warn('iCal sync unavailable (local dev?):', e.message);
+      if(statusEl) statusEl.textContent = '✅';
+    });
+}
+
 function isBlocked(y, m, d){
+  // Check iCal synced days first (month is 1-based from API)
+  for(var i=0;i<icalBookedDays.length;i++){
+    var b = icalBookedDays[i];
+    if(b.year===y && b.month===(m+1) && b.day===d) return true;
+  }
+  // Then check manually blocked days in config (month 1-based)
   var blocks = cfg.calendar.manually_blocked || [];
-  // months in config are 1-based (Jan=1), JS months are 0-based
   for(var i=0;i<blocks.length;i++){
     var b = blocks[i];
     if(b.year===y && (b.month-1)===m && b.days.indexOf(d)>-1) return true;
