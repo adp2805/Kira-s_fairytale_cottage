@@ -1,0 +1,63 @@
+{
+  "site": {
+    "name": "Kira's Fairytale Cottage",
+    "tagline_ro": "Un refugiu de poveste în inima munților Carpatici, acolo unde timpul stă pe loc și natura te îmbrățișează.",
+    "tagline_en": "A fairytale retreat in the heart of the Carpathian mountains, where time stands still and nature embraces you.",
+    "location_label": "Valea Doftanei · Prahova · România"
+  },
+
+  "contact": {
+    "address": "Valea Doftanei, Județul Prahova, România",
+    "phone": "+40 700 000 000",
+    "phone_href": "+40700000000",
+    "email": "contact@kirasfairytale.ro",
+    "instagram": "@kirasfairytalecottage",
+    "instagram_url": "https://instagram.com/kirasfairytalecottage",
+    "checkin_time": "15:00",
+    "checkout_time": "11:00"
+  },
+
+  "about": {
+    "title_ro": "Un loc unde visele devin realitate",
+    "title_en": "A place where dreams come true",
+    "description_ro": "Kira's Fairytale Cottage s-a născut dintr-o dragoste profundă pentru natură și dorința de a oferi oamenilor un refugiu autentic la munte. Situată în frumoasa Vale a Doftanei, cabana noastră a deschis porțile în 2024, cu un singur scop: să vă facă să vă simțiți acasă, departe de agitația orașului.",
+    "description_en": "Kira's Fairytale Cottage was born out of a deep love for nature and the desire to offer people an authentic mountain retreat. Nestled in the beautiful Doftana Valley, our cottage opened its doors in 2024 with one simple goal: to make you feel at home, far from the city's hustle.",
+    "description2_ro": "Fie că veniți în doi, cu familia sau cu prietenii, vă promitem o experiență de neuitat printre păduri de brazi, aer curat și liniște desăvârșită.",
+    "description2_en": "Whether you come as a couple, with family or friends, we promise an unforgettable experience surrounded by fir forests, fresh air and perfect tranquillity.",
+    "features": [
+      { "icon": "🌲", "title_ro": "Natură sălbatică",   "title_en": "Wild nature",      "desc_ro": "Trasee montane în apropiere",  "desc_en": "Mountain trails nearby" },
+      { "icon": "🔥", "title_ro": "Șemineu & căldură",  "title_en": "Fireplace & warmth","desc_ro": "Seri de poveste",             "desc_en": "Fairytale evenings" },
+      { "icon": "🌅", "title_ro": "Răsărituri superbe", "title_en": "Stunning sunrises", "desc_ro": "Peisaje de vis",              "desc_en": "Dreamy landscapes" },
+      { "icon": "🤫", "title_ro": "Liniște deplină",    "title_en": "Complete peace",    "desc_ro": "Fără zgomot urban",           "desc_en": "No urban noise" }
+    ]
+  },
+
+  "gallery": [
+    { "src": "assets/gallery1.jpg", "alt_ro": "Vedere aeriană căbănuță",       "alt_en": "Aerial view of cottage" },
+    { "src": "assets/gallery2.jpg", "alt_ro": "Grădina și bula geodezică",     "alt_en": "Garden and geodesic dome" },
+    { "src": "assets/gallery3.jpg", "alt_ro": "Bula geodezică și cabana",      "alt_en": "Geodesic dome and cottage" },
+    { "src": "assets/gallery4.jpg", "alt_ro": "Cabana toamna",                 "alt_en": "Cottage in autumn" },
+    { "src": "assets/gallery5.jpg", "alt_ro": "Grădina cu câinele",            "alt_en": "Garden with the dog" },
+    { "src": "assets/hero.jpg",     "alt_ro": "Cabana seara cu luminițe",      "alt_en": "Cottage at night with fairy lights" }
+  ],
+
+  "images": {
+    "hero": "assets/hero.jpg",
+    "about": "assets/about.jpg"
+  },
+
+  "calendar": {
+    "ical_booking_url": "",
+    "ical_airbnb_url": "",
+    "manually_blocked": [
+      { "year": 2026, "month": 5, "days": [3, 4, 5, 12, 13, 14, 15, 22, 23] }
+    ]
+  },
+
+  "booking": {
+    "emailjs_service_id": "",
+    "emailjs_template_id": "",
+    "emailjs_public_key": "",
+    "owner_email": "contact@kirasfairytale.ro"
+  }
+}
