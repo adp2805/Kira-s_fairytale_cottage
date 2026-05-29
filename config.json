@@ -8,7 +8,7 @@
 
   "contact": {
     "address": "Valea Doftanei, Județul Prahova, România",
-    "maps_url": "https://maps.app.goo.gl/SDB4vPkqUB7qqSTa6",
+    "maps_url": "https://maps.app.goo.gl/yuGxRkur5u22ChNg7",
     "phone": "+40 766 696 235",
     "phone_href": "+40766696235",
     "email": "andrei.pluteanu@gmail.com",
@@ -56,9 +56,9 @@
   },
 
   "booking": {
-    "emailjs_service_id": "",
-    "emailjs_template_id": "",
-    "emailjs_public_key": "",
+    "emailjs_service_id": "service_bwq0rt8",
+    "emailjs_template_id": "template_u6ndaoe",
+    "emailjs_public_key": "L36T4XOjQyuthfWRaT9jK",
     "owner_email": "andrei.pluteanu@gmail.com"
   }
 }
