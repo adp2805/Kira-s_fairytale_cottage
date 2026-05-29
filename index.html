@@ -244,14 +244,6 @@ footer strong{color:var(--gold-light);}
         <div class="legend-item l-today"><div class="legend-dot"></div><span id="leg-today"></span></div>
         <div class="legend-item l-sel"><div class="legend-dot"></div><span id="leg-sel"></span></div>
       </div>
-      <div class="sync-box">
-        <p id="sync-text"></p>
-        <div class="sync-badges">
-          <span class="sync-badge">📅 Booking.com · iCal</span>
-          <span class="sync-badge">🏡 Airbnb · iCal</span>
-          <span class="sync-badge"><span id="sync-status">✅</span> <span id="sync-live"></span></span>
-        </div>
-      </div>
     </div>
 
     <!-- Booking form -->
@@ -414,8 +406,6 @@ function renderAvailability(){
   el('leg-booked').textContent = t('Rezervat','Booked');
   el('leg-today').textContent  = t('Azi','Today');
   el('leg-sel').textContent    = t('Selectat','Selected');
-  el('sync-text').textContent  = t('🔄 Sincronizare automată activă cu platformele de rezervare','🔄 Automatic sync active with booking platforms');
-  el('sync-live').textContent  = '✅ ' + t('Actualizat în timp real','Updated in real time');
   el('form-title').textContent = t('Cerere de rezervare','Booking request');
   el('lbl-name').textContent   = t('Nume complet','Full name');
   el('lbl-phone').textContent  = t('Telefon','Phone');

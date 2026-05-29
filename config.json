@@ -19,12 +19,12 @@
   },
 
   "about": {
-    "title_ro": "Un loc unde visele devin realitate",
-    "title_en": "A place where dreams come true",
-    "description_ro": "Kira's Fairytale Cottage s-a născut dintr-o dragoste profundă pentru natură și dorința de a oferi oamenilor un refugiu autentic la munte. Situată în frumoasa Vale a Doftanei, cabana noastră a deschis porțile în 2024, cu un singur scop: să vă facă să vă simțiți acasă, departe de agitația orașului.",
-    "description_en": "Kira's Fairytale Cottage was born out of a deep love for nature and the desire to offer people an authentic mountain retreat. Nestled in the beautiful Doftana Valley, our cottage opened its doors in 2024 with one simple goal: to make you feel at home, far from the city's hustle.",
-    "description2_ro": "Fie că veniți în doi, cu familia sau cu prietenii, vă promitem o experiență de neuitat printre păduri de brazi, aer curat și liniște desăvârșită.",
-    "description2_en": "Whether you come as a couple, with family or friends, we promise an unforgettable experience surrounded by fir forests, fresh air and perfect tranquillity.",
+    "title_ro": "Unde pădurea începe și zgomotul orașului dispare.",
+    "title_en": "Where the forest begins and the city noise fades away.",
+    "description_ro": "Ascunsă în inima Văii Doftanei, la doar 90 de minute de București, Kira's Fairytale Cottage este evadarea ta în liniște. Lemn cald, lumini de poveste, aer de munte — tot ce ai nevoie ca să încetinești, să respiri adânc și să-ți amintești ce contează cu adevărat.",
+    "description_en": "Hidden in the heart of Doftana Valley, just 90 minutes from Bucharest, Kira's Fairytale Cottage is your escape into silence. Warm wood, fairytale lights, mountain air — everything you need to slow down, breathe deep and remember what truly matters.",
+    "description2_ro": "Nu este doar o escapadă. Este resetul de care nu știai că ai nevoie.",
+    "description2_en": "It's not just a getaway. It's the reset you didn't know you needed.",
     "features": [
       { "icon": "🌲", "title_ro": "Natură sălbatică",   "title_en": "Wild nature",      "desc_ro": "Trasee montane în apropiere",  "desc_en": "Mountain trails nearby" },
       { "icon": "🔥", "title_ro": "Șemineu & căldură",  "title_en": "Fireplace & warmth","desc_ro": "Seri de poveste",             "desc_en": "Fairytale evenings" },
