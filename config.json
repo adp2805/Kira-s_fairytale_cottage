@@ -8,11 +8,12 @@
 
   "contact": {
     "address": "Valea Doftanei, Județul Prahova, România",
-    "phone": "+40 700 000 000",
-    "phone_href": "+40700000000",
-    "email": "contact@kirasfairytale.ro",
+    "maps_url": "https://maps.app.goo.gl/HfsoeqrMA7Eep9iW6",
+    "phone": "+40 766 696 235",
+    "phone_href": "+40766696235",
+    "email": "andrei.pluteanu@gmail.com",
     "instagram": "@kirasfairytalecottage",
-    "instagram_url": "https://instagram.com/kirasfairytalecottage",
+    "instagram_url": "https://www.instagram.com/kirasfairytalecottage?igsh=amltcXRvYXF0YTJn",
     "checkin_time": "15:00",
     "checkout_time": "11:00"
   },
@@ -58,6 +59,6 @@
     "emailjs_service_id": "",
     "emailjs_template_id": "",
     "emailjs_public_key": "",
-    "owner_email": "contact@kirasfairytale.ro"
+    "owner_email": "andrei.pluteanu@gmail.com"
   }
 }

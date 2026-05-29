@@ -303,9 +303,9 @@ footer strong{color:var(--gold-light);}
     </div>
     <div class="contact-grid">
       <div class="contact-info-list" id="contact-list"></div>
-      <div class="map-frame">
+      <div class="map-frame" id="map-frame">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11156.44!2d25.9!3d45.28!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b2398a9b0f3f3f%3A0x0!2sValea%20Doftanei%2C%20Prahova!5e0!3m2!1sro!2sro!4v1"
+          src="https://maps.google.com/maps?q=Valea+Doftanei,+Prahova,+Romania&output=embed&z=14"
           allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
@@ -437,8 +437,11 @@ function renderContact(){
   el('contact-label').textContent = t('Găsește-ne','Find us');
   el('contact-title').textContent = 'Contact & ' + t('Detalii','Details');
   var c = cfg.contact;
+  var addressVal = c.maps_url
+    ? '<a href="'+c.maps_url+'" target="_blank">'+c.address+' 🗺️</a>'
+    : c.address;
   el('contact-list').innerHTML =
-    contactRow('📍', t('Adresă','Address'),   c.address) +
+    contactRow('📍', t('Adresă','Address'),   addressVal) +
     contactRow('📞', t('Telefon','Phone'),     '<a href="tel:'+c.phone_href+'">'+c.phone+'</a>') +
     contactRow('✉️', 'Email',                 '<a href="mailto:'+c.email+'">'+c.email+'</a>') +
     contactRow('📸', 'Instagram',             '<a href="'+c.instagram_url+'" target="_blank">'+c.instagram+'</a>') +
