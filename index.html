@@ -163,12 +163,12 @@ footer strong{color:var(--gold-light);}
 <!-- ══════════════ NAV ══════════════ -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo" onclick="scrollTo('hero')" id="nav-logo"></div>
+    <div class="nav-logo" onclick="goTo('hero')" id="nav-logo"></div>
     <div class="nav-links">
-      <a onclick="scrollTo('about')"        data-ro="Despre noi"      data-en="About us"></a>
-      <a onclick="scrollTo('gallery')"      data-ro="Galerie"         data-en="Gallery"></a>
-      <a onclick="scrollTo('availability')" data-ro="Disponibilitate" data-en="Availability"></a>
-      <a onclick="scrollTo('contact')"      data-ro="Contact"         data-en="Contact"></a>
+      <a onclick="goTo('about')"        data-ro="Despre noi"      data-en="About us"></a>
+      <a onclick="goTo('gallery')"      data-ro="Galerie"         data-en="Gallery"></a>
+      <a onclick="goTo('availability')" data-ro="Disponibilitate" data-en="Availability"></a>
+      <a onclick="goTo('contact')"      data-ro="Contact"         data-en="Contact"></a>
       <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
     </div>
   </div>
@@ -183,8 +183,8 @@ footer strong{color:var(--gold-light);}
     <h1 class="hero-title" id="hero-title"></h1>
     <p class="hero-subtitle" id="hero-subtitle"></p>
     <div class="hero-cta">
-      <button class="btn-primary" onclick="scrollTo('availability')" id="btn-check"></button>
-      <button class="btn-outline"  onclick="scrollTo('gallery')"      id="btn-discover"></button>
+      <button class="btn-primary" onclick="goTo('availability')" id="btn-check"></button>
+      <button class="btn-outline"  onclick="goTo('gallery')"      id="btn-discover"></button>
     </div>
   </div>
 </section>
@@ -301,14 +301,8 @@ footer strong{color:var(--gold-light);}
       <div class="divider"></div>
       <h2 class="section-title" id="contact-title"></h2>
     </div>
-    <div class="contact-grid">
+    <div class="contact-grid" style="grid-template-columns:1fr;">
       <div class="contact-info-list" id="contact-list"></div>
-      <div class="map-frame" id="map-frame">
-        <iframe
-          src="https://maps.google.com/maps?q=Valea+Doftanei,+Prahova,+Romania&output=embed&z=14"
-          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
     </div>
   </div>
 </section>
@@ -618,7 +612,7 @@ function toggleLang(){
 // ══════════════════════════════════════════
 //  HELPERS
 // ══════════════════════════════════════════
-function scrollTo(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+function goTo(id){ var target = document.getElementById(id); if(target) target.scrollIntoView({behavior:'smooth'}); }
 </script>
 </body>
 </html>
