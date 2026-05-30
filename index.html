@@ -103,6 +103,49 @@ section{padding:5rem 2rem;}
 .l-today .legend-dot{background:var(--gold);}
 .l-sel .legend-dot{background:var(--gold);}
 .date-hint{text-align:center;color:rgba(255,255,255,.45);font-size:13px;margin-top:1rem;min-height:20px;}
+
+/* ── BOOKING SUMMARY CARD ── */
+.booking-summary{
+  display:none;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  margin-top:1.5rem;
+  background:rgba(200,151,58,0.1);
+  border:1px solid rgba(200,151,58,0.35);
+  border-radius:8px;
+  overflow:hidden;
+}
+.booking-summary.visible{ display:grid; }
+.bs-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:1.25rem 1rem;gap:4px;text-align:center;
+}
+.bs-item.bs-price{
+  background:rgba(200,151,58,0.15);
+}
+.bs-divider{
+  width:1px;background:rgba(200,151,58,0.25);margin:0.75rem 0;
+}
+.bs-icon{ font-size:20px; }
+.bs-label{
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.45);margin-top:2px;
+}
+.bs-value{
+  font-family:'Playfair Display',serif;
+  font-size:17px;color:var(--white);font-weight:600;
+}
+.bs-item.bs-price .bs-value{
+  color:var(--gold-light);font-size:20px;
+}
+.bs-note{
+  text-align:center;font-size:11px;color:rgba(255,255,255,.3);
+  margin-top:0.5rem;letter-spacing:0.5px;
+}
+@media(max-width:600px){
+  .booking-summary{ grid-template-columns:1fr 1fr; }
+  .bs-divider{ display:none; }
+}
 .sync-box{margin-top:2rem;background:rgba(255,255,255,.04);border:1px dashed rgba(200,151,58,.4);border-radius:6px;padding:1.5rem;text-align:center;}
 .sync-box p{color:rgba(255,255,255,.6);font-size:13px;margin-bottom:1rem;}
 .sync-badges{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
@@ -238,6 +281,31 @@ footer strong{color:var(--gold-light);}
       </div>
       <div class="cal-grid" id="calGrid"></div>
       <div class="date-hint" id="dateHint"></div>
+      <div class="booking-summary" id="bookingSummary">
+        <div class="bs-item">
+          <span class="bs-icon">📅</span>
+          <span class="bs-label" id="bs-checkin-label"></span>
+          <span class="bs-value" id="bs-checkin"></span>
+        </div>
+        <div class="bs-divider"></div>
+        <div class="bs-item">
+          <span class="bs-icon">🏁</span>
+          <span class="bs-label" id="bs-checkout-label"></span>
+          <span class="bs-value" id="bs-checkout"></span>
+        </div>
+        <div class="bs-divider"></div>
+        <div class="bs-item">
+          <span class="bs-icon">🌙</span>
+          <span class="bs-label" id="bs-nights-label"></span>
+          <span class="bs-value" id="bs-nights"></span>
+        </div>
+        <div class="bs-divider"></div>
+        <div class="bs-item bs-price">
+          <span class="bs-icon">💰</span>
+          <span class="bs-label" id="bs-price-label"></span>
+          <span class="bs-value" id="bs-price"></span>
+        </div>
+      </div>
       <div class="cal-legend">
         <div class="legend-item l-free"><div class="legend-dot"></div><span id="leg-free"></span></div>
         <div class="legend-item l-booked"><div class="legend-dot"></div><span id="leg-booked"></span></div>
@@ -553,16 +621,32 @@ function calcPrice(checkIn, checkOut){
 }
 
 function updateHint(){
-  var mo  = lang==='ro' ? MONTHS_RO : MONTHS_EN;
+  var mo   = lang==='ro' ? MONTHS_RO : MONTHS_EN;
   var hint = el('dateHint');
+  var card = el('bookingSummary');
+
   if(!checkIn){
     hint.textContent = t('Selectați data de check-in','Select your check-in date');
+    card.classList.remove('visible');
   } else if(!checkOut){
     hint.textContent = 'Check-in: '+checkIn.d+' '+mo[checkIn.m]+' · '+t('Acum selectați check-out (min. 2 nopți)','Now select check-out (min. 2 nights)');
+    card.classList.remove('visible');
   } else {
+    hint.textContent = '';
     var nights = Math.round((new Date(checkOut.y,checkOut.m,checkOut.d)-new Date(checkIn.y,checkIn.m,checkIn.d))/86400000);
     var price  = calcPrice(checkIn, checkOut);
-    hint.textContent = checkIn.d+' '+mo[checkIn.m]+' → '+checkOut.d+' '+mo[checkOut.m]+' · '+nights+t(' nopți',' nights')+' · '+price+' RON';
+
+    el('bs-checkin-label').textContent  = t('Check-in','Check-in');
+    el('bs-checkout-label').textContent = t('Check-out','Check-out');
+    el('bs-nights-label').textContent   = t('Nopți','Nights');
+    el('bs-price-label').textContent    = t('Total estimat','Estimated total');
+
+    el('bs-checkin').textContent  = checkIn.d+' '+mo[checkIn.m];
+    el('bs-checkout').textContent = checkOut.d+' '+mo[checkOut.m];
+    el('bs-nights').textContent   = nights + t(' nopți',' nights');
+    el('bs-price').textContent    = price.toLocaleString('ro-RO') + ' RON';
+
+    card.classList.add('visible');
   }
 }
 
