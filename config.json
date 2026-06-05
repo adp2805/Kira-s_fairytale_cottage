@@ -55,6 +55,13 @@
     ]
   },
 
+  "pricing": {
+    "weekday": 600,
+    "weekend": 650,
+    "currency": "RON",
+    "min_nights": 2
+  },
+
   "booking": {
     "emailjs_service_id": "service_bwq0rt8",
     "emailjs_template_id": "template_626a8cg",

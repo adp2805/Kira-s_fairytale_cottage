@@ -658,8 +658,8 @@ function handleDayClick(y,m,d){
       checkIn={y:y,m:m,d:d}; checkOut=null;
     } else {
       var nights = Math.round((new Date(y,m,d)-new Date(checkIn.y,checkIn.m,checkIn.d))/86400000);
-      if(nights < 2){
-        el('dateHint').textContent = t('⚠️ Minimul de cazare este 2 nopți. Selectați o dată mai târzie.','⚠️ Minimum stay is 2 nights. Please select a later date.');
+      if(nights < cfg.pricing.min_nights){
+        el('dateHint').textContent = t('⚠️ Minimul de cazare este ' + cfg.pricing.min_nights + ' nopți. Selectați o dată mai târzie.', '⚠️ Minimum stay is ' + cfg.pricing.min_nights + ' nights. Please select a later date.');
         return;
       }
       checkOut={y:y,m:m,d:d};
@@ -675,9 +675,10 @@ function calcPrice(checkIn, checkOut){
   var total = 0;
   var cur = new Date(checkIn.y, checkIn.m, checkIn.d);
   var end = new Date(checkOut.y, checkOut.m, checkOut.d);
+  var p = cfg.pricing;
   while(cur < end){
-    var dow = cur.getDay(); // 0=Sun, 5=Fri, 6=Sat
-    total += (dow === 5 || dow === 6) ? 650 : 600;
+    var dow = cur.getDay();
+    total += (dow === 5 || dow === 6) ? p.weekend : p.weekday;
     cur.setDate(cur.getDate() + 1);
   }
   return total;
@@ -692,7 +693,7 @@ function updateHint(){
     hint.textContent = t('Selectați data de check-in','Select your check-in date');
     card.classList.remove('visible');
   } else if(!checkOut){
-    hint.textContent = 'Check-in: '+checkIn.d+' '+mo[checkIn.m]+' · '+t('Acum selectați check-out (min. 2 nopți)','Now select check-out (min. 2 nights)');
+    hint.textContent = 'Check-in: '+checkIn.d+' '+mo[checkIn.m]+' · '+t('Acum selectați check-out (min. ' + cfg.pricing.min_nights + ' nopți)','Now select check-out (min. ' + cfg.pricing.min_nights + ' nights)');
     card.classList.remove('visible');
   } else {
     hint.textContent = '';
